@@ -350,6 +350,42 @@ const testCases = [
             error: 0,
         },
     },
+    {
+        name: 'nodejs : sum of array',
+        reqObject: {
+            language: 'nodejs',
+            script:
+                'function sumArray(arr) {\n' +
+                '    return arr.reduce((acc, curr) => acc + curr, 0);\n' +
+                '}\n' +
+                'const numbers = [1, 2, 3, 4, 5];\n' +
+                'console.log(sumArray(numbers));\n',
+        },
+        expectedResponse: {
+            val: '15\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'nodejs : factorial using recursion',
+        reqObject: {
+            language: 'nodejs',
+            script:
+                'function factorial(n) {\n' +
+                '    if (n === 0 || n === 1) {\n' +
+                '        return 1;\n' +
+                '    }\n' +
+                '    return n * factorial(n - 1);\n' +
+                '}\n' +
+                'console.log(factorial(5));\n',
+        },
+        expectedResponse: {
+            val: '120\n',
+            status: 200,
+            error: 0,
+        },
+    },
 ]
 
 module.exports = { testCases }
