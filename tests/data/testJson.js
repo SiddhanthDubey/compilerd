@@ -298,6 +298,58 @@ const testCases = [
             error: 0,
         },
     },
+    {
+        name: 'nodejs : environment variable',
+        reqObject: {
+            language: 'nodejs',
+            script:
+                'console.log(process.env.MY_VAR || "default_value")',
+            env: {
+                MY_VAR: 'test_value',
+            },
+        },
+        expectedResponse: {
+            val: 'test_value\n',
+            status: 200,
+            error: 0,
+        },
+    },
+{
+        name: 'ruby : file reading',
+        reqObject: {
+            language: 'ruby',
+            script:
+                'File.open("test.txt", "w") { |f| f.write("Hello World") }\n' +
+                'puts File.read("test.txt")',
+        },
+        expectedResponse: {
+            val: 'Hello World\n',
+            status: 200,
+            error: 0,
+        },
+    },
+{
+        name: 'c : string reversal',
+        reqObject: {
+            language: 'c',
+            script:
+                '#include <stdio.h>\n' +
+                '#include <string.h>\n' +
+                'int main() {\n' +
+                '    char str[] = "hello";\n' +
+                '    int n = strlen(str);\n' +
+                '    for (int i = n-1; i >= 0; i--) {\n' +
+                '        printf("%c", str[i]);\n' +
+                '    }\n' +
+                '    return 0;\n' +
+                '}\n',
+        },
+        expectedResponse: {
+            val: 'olleh',
+            status: 200,
+            error: 0,
+        },
+    },
 ]
 
 module.exports = { testCases }
