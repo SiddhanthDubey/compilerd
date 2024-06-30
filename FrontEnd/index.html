@@ -9,29 +9,39 @@
 <body>
     <div class="container">
         <h1>Online Compiler</h1>
-        <form id="compiler-form">
-            <label for="language">Language:</label>
-            <select id="language" name="language">
-                <!-- Options will be dynamically added here -->
-            </select>
-            
-            <div class="editor-output-container">
-                <div class="code-editor">
-                    <label for="script" class="section-heading">Script:</label>
-                    <textarea id="script" name="script" rows="10" placeholder="Write your code here..."></textarea>
-                </div>
+        <button id="toggle-theme">🌙</button>
 
-                <div id="output-section">
-                    <label class="section-heading">Output:</label>
-                    <div id="output-container">
-                        <pre id="output"></pre>
-                    </div>
+        <form id="compiler-form">
+            <div class="label-container">
+                <label for="language">Language:</label>
+                <div class="dropdown-container">
+                    <select id="language" name="language" class="small-dropdown">
+                        <!-- Options will be dynamically added here -->
+                    </select>
                 </div>
+            </div>
+
+            <div class="editor-section">
+                <label for="script" class="section-heading">Script:</label>
+                <textarea id="script" name="script" rows="10" placeholder="Write your code here..."></textarea>
             </div>
 
             <button type="submit">Execute</button>
         </form>
+
+        <div id="output-section">
+            <label class="section-heading">Output:</label>
+            <div id="output-container">
+                <pre id="output"></pre>
+            </div>
+        </div>
     </div>
+
     <script src="./scripts/script.js"></script>
+    <script>
+        document.getElementById('toggle-theme').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
